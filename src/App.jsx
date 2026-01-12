@@ -20,10 +20,10 @@ export default function App() {
   return (
     <div className={darkMode ? "dark" : ""}>
 
-  {/* 🌈 Animated Background */}
+  {/* � Animated Background */}
   <AnimatedBackground />
 
-  {/* 🌐 Main Content */}
+  {/* �🌐 Main Content */}
   <div className="relative z-10 min-h-screen
   bg-white/80 text-black
   dark:bg-black/80 dark:text-white
