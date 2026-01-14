@@ -13,7 +13,6 @@ export default function Experience() {
         "Improved page load performance by optimizing component rendering.",
         "Collaborated with senior engineers in agile sprint cycles.",
       ],
-
     },
     {
       company: "Codveda Innovation",
@@ -26,61 +25,68 @@ export default function Experience() {
         "Implemented data validation and error handling features.",
         "Participated in code reviews and team demos.",
       ],
-
     },
   ];
 
   return (
     <section
       id="experience"
-      className="py-28 px-6 md:px-16 transition-colors duration-300
+      className="py-20 px-4 sm:px-6 md:px-10
       bg-gray-100 text-gray-900
       dark:bg-black dark:text-white"
     >
       {/* Section Title */}
-      <h2 className="text-4xl font-bold mb-16 text-left max-w-6xl mx-auto">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+        className="text-3xl font-bold mb-12 max-w-6xl mx-auto"
+      >
         Experience
-      </h2>
+      </motion.h2>
 
-      <div className="relative max-w-6xl mx-auto space-y-24">
-
+      <div className="max-w-6xl mx-auto space-y-20">
         {experiences.map((exp, index) => (
-          <motion.div
+          <div
             key={exp.company}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className={`flex flex-col md:flex-row items-center gap-10
+            className={`flex flex-col md:flex-row items-center gap-8
             ${index % 2 !== 0 ? "md:flex-row-reverse" : ""}`}
           >
             {/* Logo */}
-            <div className="flex-shrink-0">
-              <div className="w-50 h-50 rounded-2xl shadow-lg
-              bg-white dark:bg-gray-900 p-4 flex items-center justify-center">
-                <img
-                  src={exp.logo}
-                  alt={exp.company}
-                  className="w-full h-full object-contain"
-                />
-              </div>
+            <div
+              className="w-32 h-32 flex-shrink-0 bg-white dark:bg-gray-900
+              rounded-xl shadow flex items-center justify-center p-4"
+            >
+              <img
+                src={exp.logo}
+                alt={exp.company}
+                className="w-full h-full object-contain"
+              />
             </div>
 
-            {/* Card */}
-            <div className="flex-1">
-              <div className="group relative overflow-hidden
-p-8 rounded-2xl border backdrop-blur
-bg-white border-gray-200 shadow-md
-transition-all duration-500
+            {/* Experience Card */}
+            <div
+              className="group relative overflow-hidden flex-1
+              rounded-xl p-6 border
 
-hover:shadow-xl hover:-translate-y-1
-hover:border-blue-400/50
+              bg-white border-gray-200
+              dark:bg-white/5 dark:border-white/10
 
-dark:bg-white/5 dark:border-white/10
-dark:hover:border-blue-500/40
-dark:hover:shadow-blue-500/20">
+              transition-all duration-300
+              md:hover:shadow-xl
+              md:hover:border-blue-500/40"
+            >
+              {/* 🔥 Glow overlay (desktop only) */}
+              <div
+                className="pointer-events-none absolute inset-0 opacity-0
+                md:group-hover:opacity-100 transition-opacity duration-300
+                bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-transparent"
+              />
 
-                <h3 className="text-2xl font-semibold">
+              {/* Content */}
+              <div className="relative z-10">
+                <h3 className="text-xl font-semibold">
                   {exp.company}
                 </h3>
 
@@ -88,20 +94,18 @@ dark:hover:shadow-blue-500/20">
                   {exp.role}
                 </p>
 
-                <p className="text-sm mt-1 text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                   {exp.period}
                 </p>
 
-                <ul className="list-disc ml-5 mt-5 space-y-2
-                text-gray-700 dark:text-gray-300">
+                <ul className="list-disc ml-5 mt-4 space-y-2 text-sm">
                   {exp.points.map((p, i) => (
                     <li key={i}>{p}</li>
                   ))}
                 </ul>
-
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

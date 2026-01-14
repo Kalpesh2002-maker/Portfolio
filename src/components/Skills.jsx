@@ -30,21 +30,19 @@ export default function Skills() {
       dark:from-[#05070d] dark:via-[#0b1220] dark:to-black"
     >
       <motion.h2
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="text-center text-4xl font-bold mb-12
-        text-gray-900 dark:text-white"
+        text-gray-900 dark:text-white "
       >
         Skills
       </motion.h2>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
         className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto"
       >
         {skills.map((skill) => (

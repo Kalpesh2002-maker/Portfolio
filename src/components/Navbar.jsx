@@ -7,68 +7,45 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
   return (
     <nav
-      className="fixed top-0 w-full z-50 backdrop-blur
-      bg-white/80 dark:bg-blue-800/80
-      text-black dark:text-white
-      transition-colors duration-300"
+      className="fixed top-0 w-full z-50
+      bg-white/95 dark:bg-blue-900/95
+      md:backdrop-blur
+      text-black dark:text-white"
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">Kalpesh</h1>
 
-        {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6">
           {["about", "skills", "projects", "experience", "contact"].map((i) => (
             <li key={i}>
-              <a
-                href={`#${i}`}
-                className="capitalize transition hover:text-blue-500"
-              >
+              <a href={`#${i}`} className="capitalize hover:text-blue-500">
                 {i}
               </a>
             </li>
           ))}
         </ul>
 
-        {/* Right Controls */}
         <div className="flex items-center gap-4">
-
-          {/* 🌗 Theme Toggle */}
           <button
-            onClick={() => setDarkMode((prev) => !prev)}
-            className="p-2 rounded-full border
-            bg-gray-200 hover:bg-gray-300
-            dark:bg-gray-800 dark:hover:bg-gray-700
-            transition-all duration-300"
-            aria-label="Toggle theme"
+            onClick={() => setDarkMode((p) => !p)}
+            className="p-2 rounded-full bg-gray-200 dark:bg-gray-800"
           >
-            {darkMode ? (
-              <FaSun className="text-yellow-400" />
-            ) : (
-              <FaMoon className="text-gray-700 dark:text-gray-300" />
-            )}
+            {darkMode ? <FaSun /> : <FaMoon />}
           </button>
 
-          {/* 📱 Mobile Menu */}
-          <button
-            className="md:hidden"
-            onClick={() => setOpen(!open)}
-          >
+          <button className="md:hidden" onClick={() => setOpen(!open)}>
             {open ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
-
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden px-6 pb-4
-        bg-white dark:bg-black
-        text-black dark:text-white transition-colors">
+        <div className="md:hidden px-4 pb-4 bg-white dark:bg-black">
           {["about", "skills", "projects", "experience", "contact"].map((i) => (
             <a
               key={i}
               href={`#${i}`}
-              className="block py-2 capitalize hover:text-blue-500"
+              className="block py-3 text-lg"
               onClick={() => setOpen(false)}
             >
               {i}

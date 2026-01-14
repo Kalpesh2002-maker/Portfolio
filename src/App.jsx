@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import About from "./components/About";
-import AnimatedBackground from "./components/AnimatedBackground";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
@@ -19,28 +18,20 @@ export default function App() {
 
   return (
     <div className={darkMode ? "dark" : ""}>
+      <div
+        className="min-h-screen bg-white text-black
+        dark:bg-black dark:text-white"
+      >
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
-  {/* � Animated Background */}
-  <AnimatedBackground />
-
-  {/* �🌐 Main Content */}
-  <div className="relative z-10 min-h-screen
-  bg-white/80 text-black
-  dark:bg-black/80 dark:text-white
-  backdrop-blur transition-colors duration-300">
-
-    <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-
-    <Hero />
-    <About />
-    <Skills />
-    <Projects />
-    <Experience />
-    <Contact />
-    <Footer />
-
-  </div>
-</div>
-
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Contact />
+        <Footer />
+      </div>
+    </div>
   );
 }
